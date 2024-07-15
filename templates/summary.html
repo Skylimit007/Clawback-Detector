@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1E2832;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        table {
+            background-color: white;
+            color: black;
+        }
+        .btn-download {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Summary of Highlights</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <!-- Adjust these headers as per your CSV file structure -->
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                    <th>Column 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in highlights %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="{{ download_link }}" class="btn btn-download">Download CSV</a>
+        </div>
+    </div>
+</body>
+</html>
